@@ -1,0 +1,20 @@
+<h5 class="text-center"> Todos los links </h5>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Asunto</th>
+      <th scope="col">Fecha del Incidente</th>
+      <th scope="col">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @incidents.each do |e| %>
+      <th scope="row"><%=e.id  %></th>
+      <td><%=e.asunto%></td>
+      <td><%=e.fecha_incidente %></td>
+      <td><%= link_to "Incidente #{e.id}", incident_path(e.id)  %></td>
+    </tr>
+<% end %>
+</table>

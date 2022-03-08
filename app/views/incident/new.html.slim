@@ -1,2 +1,14 @@
-h1 Incident#new
-p Find me in app/views/incident/new.html.slim
+h1 Formulario para incidencias
+
+= form_for @incident, url: {action: "create"} do |f|
+ 
+  = f.label     :asunto
+  = f.text_field :asunto
+ 
+  = f.label :fecha_incidente
+  = f.date_field :fecha_incidente
+  
+  = f.label :descripcion
+  = f.rich_text_area :descripcion
+  
+  = f.submit

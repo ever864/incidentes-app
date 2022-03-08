@@ -1,4 +1,7 @@
 class IncidentController < ApplicationController
+  before_action :authenticate_user!, :except=> [:show]
+
+
   def index
     @incidents = Incident.where(user_id: current_user.id)
   end
@@ -8,11 +11,11 @@ class IncidentController < ApplicationController
   end
 
   def create
-    @incident = Incident.new(form_params.merge(user_id: current_user.id))
+    @incident = Incident.new(incident_params.merge(user_id: current_user.id))
     if @incident.save
       # PostMailer se usará para la configuración del envio de email
       # PostMailer.with(user: current_user, form: @incident).post_created.deliver_later
-      redirect_to @form
+      redirect_to @incident
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +28,7 @@ class IncidentController < ApplicationController
 
   private
 
-  def form_params
+  def incident_params
     params.require(:incident).permit(:asunto, :descripcion, :fecha_incidente)
   end
 
