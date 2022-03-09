@@ -1,14 +1,15 @@
-h1 Formulario para incidencias
+.card.mt-5.p-3
+  h4.text-center Formulario para incidencias
 
-= form_for @incident, url: {action: "create"} do |f|
- 
-  = f.label     :asunto
-  = f.text_field :asunto
- 
-  = f.label :fecha_incidente
-  = f.date_field :fecha_incidente
-  
-  = f.label :descripcion
-  = f.rich_text_area :descripcion
-  
-  = f.submit
+  = form_for @incident, url: {action: "create"} do |f|
+    .field.mt-3
+    = f.label     :asunto
+    = f.text_field :asunto, class: "form-control py-2"
+    .field.mt-3
+    = f.label :fecha_incidente
+    = f.date_field :fecha_incidente, class: "form-control py-2"
+    .field.mt-3  
+    = f.label :descripcion
+    = f.rich_text_area :descripcion, class: "form-control py-2"
+    .mt-3.actions.mt-4.mb-5
+    = f.submit

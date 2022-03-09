@@ -1,6 +1,21 @@
-   div = @incident.asunto
-   == @incident.descripcion
-   = @incident.id
-
-   div = @user.email
+.card.mt-4.p-3
+      .mr-3
+       |Asunto: 
+       = @incident.asunto
+       hr
+      .mr-3
+       |Descripción: 
+       == @incident.descripcion
+       hr
+      .mr-3
+       |Id Incidente: 
+       = @incident.id
+       hr
+       .mr-3
+       |Fecha incidente: 
+       = @incident.fecha_incidente
+       hr
+      .mr-3
+       |Email: 
+       = @user.email
 
