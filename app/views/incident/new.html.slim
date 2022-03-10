@@ -1,3 +1,4 @@
+
 .card.mt-5.p-3
   h4.text-center Formulario para incidencias
 
@@ -11,5 +12,11 @@
     .field.mt-3  
     = f.label :descripcion
     = f.rich_text_area :descripcion, class: "form-control py-2"
+    - if @incident.errors.any?
+      - @incident.errors.full_messages.each do |message|
+        .alert.alert-danger.mt-3
+          = message   
     .mt-3.actions.mt-4.mb-5
     = f.submit
+   
+   
