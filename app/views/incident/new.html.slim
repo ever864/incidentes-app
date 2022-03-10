@@ -12,6 +12,9 @@
     .field.mt-3  
     = f.label :descripcion
     = f.rich_text_area :descripcion, class: "form-control py-2"
+    .field.mt-3
+    = f.label :image_incident
+    = f.file_field :image_incident
     - if @incident.errors.any?
       - @incident.errors.full_messages.each do |message|
         .alert.alert-danger.mt-3
