@@ -63,4 +63,4 @@ gem 'mjml-rails'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
-# gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
