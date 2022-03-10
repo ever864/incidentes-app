@@ -21,7 +21,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: report-form_test
+  database: incidents_test
 
 production:
   <<: *default
