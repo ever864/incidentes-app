@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_205049) do
+ActiveRecord::Schema.define(version: 2022_03_10_164047) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "action_text_rich_texts", force: :cascade do |t|
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_205049) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "incidents", force: :cascade do |t|
+  create_table "incidents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "asunto"
     t.date "fecha_incidente"
     t.datetime "created_at", precision: 6, null: false
