@@ -8,7 +8,8 @@ class PostMailer < ApplicationMailer
   def post_created
     @user = params[:user]
     @incident = params[:incident]
-
+    photo = @incident.image_incident
+    attachments[photo.filename.to_s] = photo.download
     mail(
       from: @user.email, 
       cc: User.all.pluck(:email),

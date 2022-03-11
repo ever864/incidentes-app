@@ -7,6 +7,10 @@
        |Descripción: 
        == @incident.descripcion
        hr
+       .mr-3
+       |Imagen: 
+       = image_tag @incident.image_incident, alt: "#{@incident.asunto}"
+       hr
       .mr-3
        |Id Incidente: 
        = @incident.id

@@ -12,7 +12,6 @@ class IncidentController < ApplicationController
   def create
     @incident = Incident.new(incident_params.merge(user_id: current_user.id))
     if @incident.save
-      PostMailer.with(user: current_user, incident: @incident).post_created.deliver_later
       redirect_to @incident
     else
       render :new, status: :unprocessable_entity
@@ -27,7 +26,7 @@ class IncidentController < ApplicationController
   private
 
   def incident_params
-    params.require(:incident).permit(:asunto, :descripcion, :fecha_incidente)
+    params.require(:incident).permit(:asunto, :descripcion, :fecha_incidente, :image_incident)
   end
 
 end

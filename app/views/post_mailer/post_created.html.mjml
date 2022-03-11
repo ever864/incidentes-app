@@ -9,6 +9,9 @@
 
 <mj-text><%= @user.email %></mj-text>
 <mj-text><%= @incident.descripcion %></mj-text>
+<mj-text><%= @incident.id %></mj-text>
+<mj-text><%= image_tag @incident.image_incident %></mj-text>
+
 
 <%= @greeting %>, find me in app/views/app/views/post_mailer/post_created.html.erb
 
